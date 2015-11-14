@@ -55,7 +55,7 @@ app.use(function(err, req, res, next){
   if (err.status == 400){
     res.status(400);
     res.render(400);
-  } else {}
+  } else {
   res.status(500);
   res.render('500');
 }
