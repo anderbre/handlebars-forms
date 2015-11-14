@@ -47,13 +47,12 @@ app.use(function(req,res){
 });
 
 app.use(function(err, req, res, next){
-  var error = {};
+
   console.error(err);
   res.type('plain/text');
   if (err.status == 400){
     res.status(400);
-    error.body = req.body;
-    res.render(400, error);
+    res.render(400, err);
   } else {
   res.status(500);
   res.render('500');
