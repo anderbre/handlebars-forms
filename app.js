@@ -35,7 +35,7 @@ app.post('/', function(req,res){
   var context = {};
   context.data = bParams;
   context.query = qParams;
-  res.render('post', context);}
+  res.render('post', context);
 
 });
 
