@@ -1,6 +1,10 @@
 <h1>You sent the following data in a GET request:</h1>
+{{#if data}}
 <ul>
-  {{#each dataList}}
+  {{#each data}}
     <li>{{this.name}}: {{this.value}}
   {{/each}}
 </ul>
+{{else}}
+  <p>No data? Why do you waste my time?</p>
+{{/if}}
