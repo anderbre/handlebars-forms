@@ -25,7 +25,7 @@ app.get('/',function(req,res){
 app.post('/', function(req,res){
   var bParams = [];
   var qParams = [];
-  if (Object.keys(req.body)){
+
   for (var p in req.body){
     bParams.push({'name':p,'value':req.body[p]})
   }
@@ -36,10 +36,7 @@ app.post('/', function(req,res){
   context.data = bParams;
   context.query = qParams;
   res.render('post', context);}
-  else {
-    res.status(400);
-    res.render('400');
-  }
+
 });
 
 
@@ -54,7 +51,7 @@ app.use(function(err, req, res, next){
   res.type('plain/text');
   if (err.status == 400){
     res.status(400);
-    res.render(400);
+    res.render(400, err.body);
   } else {
   res.status(500);
   res.render('500');

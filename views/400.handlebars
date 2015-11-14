@@ -1,1 +1,7 @@
 <h1>Error 400 - Bad request. Was the request formatted properly?</h1>
+{{#if body}}
+  <p>Data that was sent:</p>
+  {{#each}}
+  <p>{{body}}<p>
+  {{/each}}
+{{/if}}
