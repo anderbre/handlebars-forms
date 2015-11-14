@@ -11,7 +11,7 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
-
+// handle get type requests
 app.get('/',function(req,res){
   var qParams = [];
   for (var p in req.query){
@@ -22,6 +22,7 @@ app.get('/',function(req,res){
   res.render('get', context);
 });
 
+// handle post type requests
 app.post('/', function(req,res){
   var bParams = [];
   var qParams = [];
@@ -39,21 +40,19 @@ app.post('/', function(req,res){
 
 });
 
-
-
+// catch route not found
 app.use(function(req,res){
   res.status(404);
   res.render('404');
 });
 
+// catch errors. 400 on bad JSON object, 500 for rest
 app.use(function(err, req, res, next){
-
-  console.error(err);
   res.type('plain/text');
   if (err.status == 400){
     res.status(400);
     res.render(400, err);
-  } else {
+  } else{
   res.status(500);
   res.render('500');
 }
