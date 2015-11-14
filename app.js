@@ -25,7 +25,7 @@ app.get('/',function(req,res){
 app.post('/', function(req,res){
   var bParams = [];
   var qParams = [];
-  if (!Object.keys(req.body)){
+  if (Object.keys(req.body)){
   for (var p in req.body){
     bParams.push({'name':p,'value':req.body[p]})
   }
