@@ -52,8 +52,13 @@ app.use(function(req,res){
 app.use(function(err, req, res, next){
   console.error(err);
   res.type('plain/text');
+  if (err.status == 400){
+    res.status(400);
+    res.render(400);
+  } else {}
   res.status(500);
   res.render('500');
+}
 });
 
 app.listen(app.get('port'), function(){
