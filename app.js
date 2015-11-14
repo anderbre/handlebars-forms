@@ -23,14 +23,18 @@ app.get('/',function(req,res){
 });
 
 app.post('/', function(req,res){
+  var bParams = [];
   var qParams = [];
   for (var p in req.body){
-    qParams.push({'name':p,'value':req.body[p]})
+    bParams.push({'name':p,'value':req.body[p]})
   }
-  console.log(qParams);
-  console.log(req.body);
+  for (var p in req.query){
+    qParams.push({'name':p,'value':req.query[p]})
+  }
+  
   var context = {};
-  context.data = qParams;
+  context.data = bParams;
+  context.query = qParams;
   res.render('post', context);
 });
 
