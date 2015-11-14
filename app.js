@@ -18,7 +18,7 @@ app.get('/',function(req,res){
     qParams.push({'name':p,'value':req.query[p]})
   }
   var context = {};
-  context.dataList = qParams;
+  context.data = qParams;
   res.render('get', context);
 });
 
@@ -30,7 +30,7 @@ app.post('/', function(req,res){
   console.log(qParams);
   console.log(req.body);
   var context = {};
-  context.dataList = qParams;
+  context.data = qParams;
   res.render('post', context);
 });
 
