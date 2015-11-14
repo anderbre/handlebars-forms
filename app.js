@@ -38,6 +38,11 @@ app.post('/', function(req,res){
 });
 
 app.use(function(req,res){
+  res.status(400);
+  res.render('400');
+});
+
+app.use(function(req,res){
   res.status(404);
   res.render('404');
 });
