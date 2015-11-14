@@ -31,7 +31,6 @@ app.post('/', function(req,res){
   for (var p in req.query){
     qParams.push({'name':p,'value':req.query[p]})
   }
-  
   var context = {};
   context.data = bParams;
   context.query = qParams;
