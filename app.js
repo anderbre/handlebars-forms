@@ -52,7 +52,7 @@ app.use(function(err, req, res, next){
   res.type('plain/text');
   if (err.status == 400){
     res.status(400);
-    error.body = JSON.stringify(req.body);
+    error.body = req.body;
     res.render(400, error);
   } else {
   res.status(500);
